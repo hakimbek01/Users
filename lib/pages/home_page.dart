@@ -142,7 +142,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     Column(
                       children: users.map((e) {
-                        return itemOfUser(e,int.parse(e.id!));
+                        return itemOfUser(e,0);
                       }).toList(),
                     ),
                     SizedBox(height: 20,)

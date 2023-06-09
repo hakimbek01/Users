@@ -13,9 +13,6 @@ class ControllerPage extends StatefulWidget {
 
 class _ControllerPageState extends State<ControllerPage> {
 
-  int _selectedIndex = 0;
-  PageController _pageController=PageController();
-
   @override
   Widget build(BuildContext context) {
     return CupertinoTabScaffold(

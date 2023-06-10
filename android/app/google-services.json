@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "418319080764",
+    "project_id": "task-96604",
+    "storage_bucket": "task-96604.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:418319080764:android:b6df89c6ff0b405ccc1239",
+        "android_client_info": {
+          "package_name": "com.hakimbek.task2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "418319080764-dpi130qqunloa40ncj3pfsisk54fv228.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0ofs9z_nOB4xg9CUIaFKpv7DuZnKDib0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "418319080764-dpi130qqunloa40ncj3pfsisk54fv228.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

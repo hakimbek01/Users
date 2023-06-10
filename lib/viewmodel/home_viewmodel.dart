@@ -104,6 +104,7 @@ class HomeViewModel extends ChangeNotifier {
               Expanded(
                 child: SingleChildScrollView(
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text("Remove Ingredients",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16),),
                       SizedBox(height: 15,),
@@ -256,7 +257,7 @@ class HomeViewModel extends ChangeNotifier {
                           Text("Coke",style: TextStyle(color: Colors.grey),),
                           Row(
                             children: [
-                              Text("+3"),
+                              Text("+3",style: TextStyle(color: Colors.grey),),
                               SizedBox(width: 5,),
                               Radio(
                                 value: true,
@@ -277,7 +278,7 @@ class HomeViewModel extends ChangeNotifier {
                           Text("Ayran",style: TextStyle(color: Colors.grey),),
                           Row(
                             children: [
-                              Text("+2"),
+                              Text("+2",style: TextStyle(color: Colors.grey),),
                               SizedBox(width: 5,),
                               Radio(
                                 value: true,

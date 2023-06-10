@@ -76,23 +76,8 @@ Widget itemOfUser(Post post,int index,context,HomeViewModel homeViewModel){
                         Row(
                           children: [
                             Text(post.id!+"\$",style: const TextStyle(color: Colors.blue,fontWeight: FontWeight.bold,fontSize: 16),),
-                            SizedBox(
-                              height: 20,
-                              width: 40,
-                              child: Stack(
-                                children: [
-                                  Center(child: Text(post.count!.toString()+"\$",style: const TextStyle(color: Colors.grey,fontWeight: FontWeight.bold,fontSize: 13),)),
-                                  Align(
-                                    alignment: Alignment.center,
-                                    child: Container(
-                                      height: 1,
-                                      width: 30,
-                                      color: Colors.grey,
-                                    ),
-                                  )
-                                ],
-                              ),
-                            )
+                            SizedBox(width: 10,),
+                            Text(post.count!.toString()+"\$",style: const TextStyle(color: Colors.grey,fontWeight: FontWeight.bold,fontSize: 13,decoration: TextDecoration.lineThrough),)
                           ],
                         )
                       ],

@@ -6,7 +6,6 @@ import 'package:task2/viewmodel/home_viewmodel.dart';
 import '../model/post_model.dart';
 import '../pages/editing_page.dart';
 
-HomeViewModel homeViewModel = HomeViewModel();
 
 Widget itemOfBaner(index,String image) {
   return Container(
@@ -23,7 +22,7 @@ Widget itemOfBaner(index,String image) {
   );
 }
 
-Widget itemOfUser(Post post,int index,context,){
+Widget itemOfUser(Post post,int index,context,HomeViewModel homeViewModel){
   return GestureDetector(
     onTap: () async {
       await Navigator.push(context, CupertinoPageRoute(builder: (context) => EditingPage(post: post),));
@@ -179,7 +178,6 @@ Widget itemOfUser(Post post,int index,context,){
                     child: IconButton(
                       onPressed: () {
                         homeViewModel.delUser(post);
-                        homeViewModel.getUser(true);
                       },
                       icon: Icon(CupertinoIcons.delete,color: Colors.red,),
                     ),

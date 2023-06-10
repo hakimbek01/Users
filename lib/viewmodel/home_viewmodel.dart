@@ -31,5 +31,6 @@ class HomeViewModel extends ChangeNotifier {
     isLoading = true;
     notifyListeners();
     await Network.DEL(Network.API_DELETE+post.id!, {});
+    getUser(true);
   }
 }

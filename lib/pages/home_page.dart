@@ -155,7 +155,7 @@ class _HomePageState extends State<HomePage> {
                           SizedBox(height: 10,),
                           Column(
                             children: homeViewModel.users.map((e) {
-                              return itemOfUser(e,0,context);
+                              return itemOfUser(e,0,context,homeViewModel);
                             }).toList(),
                           ),
                           SizedBox(height: 20,)

@@ -168,7 +168,7 @@ class _HomePageState extends State<HomePage> {
               Scaffold(
                 backgroundColor: Colors.transparent,
                 body: Center(
-                  child: CircularProgressIndicator(),
+                  child: CupertinoActivityIndicator(),
                 ),
               ):
               SizedBox()

@@ -168,15 +168,7 @@ Widget itemOfUser(Post post,int index,context,HomeViewModel homeViewModel){
               ],
             ),
           ),
-          Checkbox(
-            value: value1,
-            onChanged: (value) {
-              value1 = value;
-              print(value);
-            },
-            activeColor: Colors.blue,
-          ),
-           const Divider(),
+          const Divider(),
           SizedBox(
             width: double.infinity,
             child: Padding(

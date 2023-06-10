@@ -103,7 +103,7 @@ Widget itemOfUser(Post post,int index,context,HomeViewModel homeViewModel){
                   children: [
                     InkWell(
                       onTap: () {
-                          index-=1;
+                        homeViewModel.decrement(index);
                       },
                       child: Container(
                         height: 30,
@@ -133,13 +133,12 @@ Widget itemOfUser(Post post,int index,context,HomeViewModel homeViewModel){
                           )
                       ),
                       child: Center(
-                          child: Text(index.toString(),style: TextStyle(color: Colors.white),)
+                          child: Text(homeViewModel.countIndex[index].toString(),style: TextStyle(color: Colors.white),)
                       ),
                     ),
                     InkWell(
                       onTap: () {
-                          index+=1;
-                        print(index);
+                        homeViewModel.increment(index);
                       },
                       child: Container(
                         height: 30,

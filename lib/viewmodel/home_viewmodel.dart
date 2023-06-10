@@ -11,6 +11,8 @@ class HomeViewModel extends ChangeNotifier {
   int buttonIndex = 0;
   bool isLoading = false;
   List<Post> users = [];
+  List<int> countIndex = [];
+  int count = 0;
 
   Future<void> getUser(bool a) async {
     if (a) {
@@ -25,6 +27,10 @@ class HomeViewModel extends ChangeNotifier {
       users = Network.parsePostList(rezult!);
       notifyListeners();
     }
+
+    for(var a in users) {
+      countIndex.add(0);
+    }
   }
 
   void delUser(Post post) async {
@@ -33,4 +39,20 @@ class HomeViewModel extends ChangeNotifier {
     await Network.DEL(Network.API_DELETE+post.id!, {});
     getUser(true);
   }
+
+
+  void increment(int index) {
+    countIndex[index]++;
+    notifyListeners();
+  }
+
+  void decrement(int index) {
+
+    if (countIndex[index]>0) {
+      countIndex[index]--;
+    }
+
+    notifyListeners();
+  }
+
 }

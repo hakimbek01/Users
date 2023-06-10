@@ -48,6 +48,14 @@ class _HomePageState extends State<HomePage> {
                   backgroundColor: Colors.white,
                   centerTitle: true,
                   title: const Text("Users",style: TextStyle(fontSize: 22,color: Colors.blue),),
+                  actions: [
+                    IconButton(
+                      onPressed: () async {
+                        await Network.POST(Network.API_CREATE, {});
+                      },
+                      icon: Icon(CupertinoIcons.add,color: Colors.blue,),
+                    )
+                  ],
                 ),
                 backgroundColor: Colors.white,
                 body: RefreshIndicator(

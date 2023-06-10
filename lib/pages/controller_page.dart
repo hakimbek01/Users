@@ -21,6 +21,7 @@ class _ControllerPageState extends State<ControllerPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
+        physics: NeverScrollableScrollPhysics(),
         controller: pageController,
         onPageChanged: (value) {
           setState(() {
@@ -38,17 +39,13 @@ class _ControllerPageState extends State<ControllerPage> {
         onTap: (value) {
           setState(() {
             currentIndex = value;
+            pageController.animateToPage(value, duration: Duration(milliseconds: 150), curve: Curves.easeIn);
           });
         },
-        currentIndex: currentIndex,
-        selectedIconTheme: IconThemeData(color: Colors.blue),
-        selectedLabelStyle: TextStyle(color: Colors.grey),
-        selectedFontSize: 0,
         type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.white,
-        unselectedFontSize: 0,
+        selectedIconTheme: IconThemeData(color: Colors.blue),
         unselectedIconTheme: IconThemeData(color: Colors.grey),
-        unselectedLabelStyle: TextStyle(color: Colors.grey),
+        currentIndex: currentIndex,
         items: [
           BottomNavigationBarItem(
             icon: Icon(CupertinoIcons.home),

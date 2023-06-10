@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:task2/model/user_model.dart';
 
@@ -6,9 +8,12 @@ class DataService {
   static String users = "users";
 
   static Future<void> addUser(UserModel userModel) async {
-    var docs = _firebase.collection(users).doc();
-    userModel.id = docs.id;
-    await docs.set(userModel.toJson());
+    await _firebase.collection(users).doc(userModel.id).set(userModel.toJson());
+  }
+
+  static Future<UserModel?> getUser(String uid) async {
+     var docs = await _firebase.collection(users).doc(uid).get();
+     return UserModel.fromJson(docs.data()!);
   }
 
 }

@@ -87,7 +87,7 @@ Widget itemOfUser(Post post,int index,context,HomeViewModel homeViewModel){
                 homeViewModel.countIndex[index]==0?
                 InkWell(
                   onTap: () async {
-                    await homeViewModel.bottomSheet(context);
+                    await homeViewModel.bottomSheet(context,false,false,false,false,false,false,false,false,false,false);
                     homeViewModel.increment(index);
                   },
                   child: Container(

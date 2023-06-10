@@ -56,17 +56,17 @@ class HomeViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future bottomSheet(context) {
-    bool? value1 = false;
-    bool? value2 = false;
-    bool? value3 = false;
-    bool? value4 = false;
-    bool? value5 = false;
-    bool? value6 = false;
-    bool? value7 = false;
-    bool? value8 = false;
-    bool? value9 = false;
-    bool? value10 = false;
+  Future bottomSheet(context,value1,value2,value3,value4,value5,value6,value7,value8,value9,value10) {
+    // bool? value1 = false;
+    // bool? value2 = false;
+    // bool? value3 = false;
+    // bool? value4 = false;
+    // bool? value5 = false;
+    // bool? value6 = false;
+    // bool? value7 = false;
+    // bool? value8 = false;
+    // bool? value9 = false;
+    // bool? value10 = false;
 
 
     return showModalBottomSheet(

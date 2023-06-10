@@ -21,7 +21,7 @@ Widget itemOfBaner(index,String image) {
     ),
   );
 }
-
+bool? value1=false;
 Widget itemOfUser(Post post,int index,context,HomeViewModel homeViewModel){
   return GestureDetector(
     onTap: () async {
@@ -29,7 +29,7 @@ Widget itemOfUser(Post post,int index,context,HomeViewModel homeViewModel){
     },
     child: Container(
       width: double.infinity,
-      height: 200 ,
+      height: 230 ,
       margin: const EdgeInsets.only(bottom: 20),
       decoration: BoxDecoration(
           color: Colors.white,
@@ -84,6 +84,32 @@ Widget itemOfUser(Post post,int index,context,HomeViewModel homeViewModel){
                     )
                   ],
                 ),
+                homeViewModel.countIndex[index]==0?
+                InkWell(
+                  onTap: () async {
+                    await homeViewModel.bottomSheet(context);
+                    homeViewModel.increment(homeViewModel.countIndex[index]);
+                  },
+                  child: Container(
+                    height: 30,
+                    width: 30,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                        gradient: LinearGradient(
+                            begin: Alignment.bottomLeft,
+                            end: Alignment.topRight,
+                            colors: [
+                              Colors.blue,
+                              Colors.blue.withOpacity(.6),
+                            ]
+                        )
+                    ),
+                    child: Center(
+                        child: Icon(Icons.add,color: Colors.white,)
+                    ),
+                  ),
+                ):
                 Column(
                   children: [
                     InkWell(
@@ -142,7 +168,15 @@ Widget itemOfUser(Post post,int index,context,HomeViewModel homeViewModel){
               ],
             ),
           ),
-          const Divider(),
+          Checkbox(
+            value: value1,
+            onChanged: (value) {
+              value1 = value;
+              print(value);
+            },
+            activeColor: Colors.blue,
+          ),
+           const Divider(),
           SizedBox(
             width: double.infinity,
             child: Padding(
@@ -175,3 +209,4 @@ Widget itemOfUser(Post post,int index,context,HomeViewModel homeViewModel){
     ),
   );
 }
+

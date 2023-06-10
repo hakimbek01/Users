@@ -34,7 +34,7 @@ class HomeViewModel extends ChangeNotifier {
     }
   }
 
-  void delUser(Post post) async {
+  Future<void> delUser(Post post) async {
     isLoading = true;
     notifyListeners();
     await Network.DEL(Network.API_DELETE+post.id!, {});
@@ -55,8 +55,6 @@ class HomeViewModel extends ChangeNotifier {
 
     notifyListeners();
   }
-
-
 
   Future bottomSheet(context) {
     bool? value1 = false;

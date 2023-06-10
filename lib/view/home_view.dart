@@ -88,7 +88,7 @@ Widget itemOfUser(Post post,int index,context,HomeViewModel homeViewModel){
                 InkWell(
                   onTap: () async {
                     await homeViewModel.bottomSheet(context);
-                    homeViewModel.increment(homeViewModel.countIndex[index]);
+                    homeViewModel.increment(index);
                   },
                   child: Container(
                     height: 30,
@@ -186,8 +186,9 @@ Widget itemOfUser(Post post,int index,context,HomeViewModel homeViewModel){
                   CircleAvatar(
                     backgroundColor: Colors.grey.withOpacity(.3),
                     child: IconButton(
-                      onPressed: () {
-                        homeViewModel.delUser(post);
+                      onPressed: () async {
+                        await homeViewModel.delUser(post);
+                        homeViewModel.countIndex.removeAt(index);
                       },
                       icon: Icon(CupertinoIcons.delete,color: Colors.red,),
                     ),

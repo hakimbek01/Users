@@ -320,19 +320,23 @@ class HomeViewModel extends ChangeNotifier {
                                 ),
                               ),
                               Expanded(
-                                child: MaterialButton(
-                                  padding: EdgeInsets.zero,
-                                  onPressed: () {
-                                    increment(index);
-                                    Navigator.pop(context);
-                                  },
+                                child: Container(
+                                  margin: EdgeInsets.only(right: 5),
                                   height: 50,
-                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(topRight: Radius.circular(7),bottomRight: Radius.circular(7))),
-                                  color: Colors.lightBlueAccent,
-                                  child: Text("Add to Cart",style: TextStyle(color: Colors.white,fontSize: 17),),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.only(topRight: Radius.circular(7),bottomRight: Radius.circular(7)),
+                                    gradient: LinearGradient(
+                                      begin: Alignment.bottomLeft,
+                                      end: Alignment.topRight,
+                                      colors: [
+                                        Colors.lightBlueAccent.shade100,
+                                        Colors.lightBlueAccent
+                                      ]
+                                    )
+                                  ),
+                                  child: Center(child: Text("Add to Cart",style: TextStyle(color: Colors.white,fontSize: 17),)),
                                 ),
                               ),
-                              SizedBox(width: 5,),
                             ],
                           ),
                           SizedBox(height: 20,),

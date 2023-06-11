@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import '../model/post_model.dart';
 import '../services/http_service.dart';
 
@@ -14,6 +12,7 @@ class HomeViewModel extends ChangeNotifier {
   List<Post> users = [];
   List<int> countIndex = [];
   int count = 0;
+
 
   Future<void> getUser(bool a) async {
     if (a) {
@@ -56,20 +55,17 @@ class HomeViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future bottomSheet(context,value1,value2,value3,value4,value5,value6,value7,value8,value9,value10) {
-    // bool? value1 = false;
-    // bool? value2 = false;
-    // bool? value3 = false;
-    // bool? value4 = false;
-    // bool? value5 = false;
-    // bool? value6 = false;
-    // bool? value7 = false;
-    // bool? value8 = false;
-    // bool? value9 = false;
-    // bool? value10 = false;
-
-
-    return showModalBottomSheet(
+  void bottomSheet(context,price,index)  {
+    bool? value1 = false;
+    bool? value2 = false;
+    bool? value3 = false;
+    bool? value4 = false;
+    bool? value5 = false;
+    bool? value6 = false;
+    bool? value7 = false;
+    List list = [0,1,2];
+    int? currentRadio;
+    showModalBottomSheet(
       context: context,
       isScrollControlled: true,
       useSafeArea: true,
@@ -115,8 +111,9 @@ class HomeViewModel extends ChangeNotifier {
                               Checkbox(
                                 value: value1,
                                 onChanged: (value) {
-                                  value1 = value;
-                                  notifyListeners();
+                                  setState((){
+                                    value1 = value;
+                                  });
                                 },
                                 activeColor: Colors.blue,
                               )
@@ -129,8 +126,9 @@ class HomeViewModel extends ChangeNotifier {
                               Checkbox(
                                 value: value2,
                                 onChanged: (value) {
-                                  value2 = value;
-                                  notifyListeners();
+                                  setState((){
+                                    value2 = value;
+                                  });
                                 },
                                 activeColor: Colors.blue,
                               )
@@ -143,8 +141,9 @@ class HomeViewModel extends ChangeNotifier {
                               Checkbox(
                                 value: value3,
                                 onChanged: (value) {
-                                  value3 = value;
-                                  notifyListeners();
+                                  setState((){
+                                    value3 = value;
+                                  });
                                 },
                                 activeColor: Colors.blue,
                               )
@@ -164,8 +163,9 @@ class HomeViewModel extends ChangeNotifier {
                                   Checkbox(
                                     value: value4,
                                     onChanged: (value) {
-                                      value4 = value;
-                                      notifyListeners();
+                                      setState((){
+                                        value4 = value;
+                                      });
                                     },
                                     activeColor: Colors.blue,
                                   )
@@ -184,8 +184,9 @@ class HomeViewModel extends ChangeNotifier {
                                   Checkbox(
                                     value: value5,
                                     onChanged: (value) {
-                                      value5 = value;
-                                      notifyListeners();
+                                      setState((){
+                                        value5 = value;
+                                      });
                                     },
                                     activeColor: Colors.blue,
                                   )
@@ -204,8 +205,9 @@ class HomeViewModel extends ChangeNotifier {
                                   Checkbox(
                                     value: value6,
                                     onChanged: (value) {
-                                      value6 = value;
-                                      notifyListeners();
+                                      setState((){
+                                        value6 = value;
+                                      });
                                     },
                                     activeColor: Colors.blue,
                                   )
@@ -224,10 +226,10 @@ class HomeViewModel extends ChangeNotifier {
                                   Checkbox(
                                     value: value7,
                                     onChanged: (value) {
-                                      value7 = value;
-                                      notifyListeners();
+                                      setState((){
+                                        value7 = value;
+                                      });
                                     },
-                                    activeColor: Colors.blue,
                                   )
                                 ],
                               )
@@ -241,11 +243,12 @@ class HomeViewModel extends ChangeNotifier {
                             children: [
                               Text("Nothing",style: TextStyle(color: Colors.grey),),
                               Radio(
-                                value: true,
-                                groupValue: value8,
+                                value: list[0],
+                                groupValue: currentRadio,
                                 onChanged: (value) {
-                                  value8 = value;
-                                  notifyListeners();
+                                  setState((){
+                                   currentRadio = value;
+                                  });
                                 },
                                 activeColor: Colors.blue,
                               )
@@ -260,11 +263,12 @@ class HomeViewModel extends ChangeNotifier {
                                   Text("+3",style: TextStyle(color: Colors.grey),),
                                   SizedBox(width: 5,),
                                   Radio(
-                                    value: true,
-                                    groupValue: value9,
+                                    value: list[1],
+                                    groupValue: currentRadio,
                                     onChanged: (value) {
-                                      value9 = value;
-                                      notifyListeners();
+                                      setState((){
+                                        currentRadio = value;
+                                      });
                                     },
                                     activeColor: Colors.blue,
                                   )
@@ -281,11 +285,12 @@ class HomeViewModel extends ChangeNotifier {
                                   Text("+2",style: TextStyle(color: Colors.grey),),
                                   SizedBox(width: 5,),
                                   Radio(
-                                    value: true,
-                                    groupValue: value10,
+                                    value: list[2],
+                                    groupValue: currentRadio,
                                     onChanged: (value) {
-                                      value10 = value;
-                                      notifyListeners();
+                                      setState((){
+                                        currentRadio = value;
+                                      });
                                     },
                                     activeColor: Colors.blue,
                                   )
@@ -293,6 +298,44 @@ class HomeViewModel extends ChangeNotifier {
                               )
                             ],
                           ),
+                          Row(
+                            children: [
+                              Container(
+                                height: 50,
+                                width: 100,
+                                margin: EdgeInsets.only(left: 5),
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.only(topLeft: Radius.circular(7),bottomLeft: Radius.circular(7)),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.grey.shade200,
+                                      spreadRadius: 3,
+                                      blurRadius: 8
+                                    )
+                                  ]
+                                ),
+                                child: Center(
+                                  child: Text(price+"\$",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
+                                ),
+                              ),
+                              Expanded(
+                                child: MaterialButton(
+                                  padding: EdgeInsets.zero,
+                                  onPressed: () {
+                                    increment(index);
+                                    Navigator.pop(context);
+                                  },
+                                  height: 50,
+                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(topRight: Radius.circular(7),bottomRight: Radius.circular(7))),
+                                  color: Colors.lightBlueAccent,
+                                  child: Text("Add to Cart",style: TextStyle(color: Colors.white,fontSize: 17),),
+                                ),
+                              ),
+                              SizedBox(width: 5,),
+                            ],
+                          ),
+                          SizedBox(height: 20,),
                         ],
                       ),
                     ),

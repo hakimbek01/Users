@@ -1,8 +1,6 @@
 import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
 import 'package:image_picker/image_picker.dart';
-
 import '../model/post_model.dart';
 import '../services/http_service.dart';
 import '../services/utils.dart';

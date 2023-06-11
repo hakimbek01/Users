@@ -21,15 +21,15 @@ Widget itemOfBaner(index,String image) {
     ),
   );
 }
-bool? value1=false;
-Widget itemOfUser(Post post,int index,context,HomeViewModel homeViewModel){
+
+Widget itemOfUser(Post post,int index,context,HomeViewModel homeViewModel,){
   return GestureDetector(
     onTap: () async {
       await Navigator.push(context, CupertinoPageRoute(builder: (context) => EditingPage(post: post),));
     },
     child: Container(
       width: double.infinity,
-      height: 230 ,
+      height: 200 ,
       margin: const EdgeInsets.only(bottom: 20),
       decoration: BoxDecoration(
           color: Colors.white,
@@ -87,8 +87,7 @@ Widget itemOfUser(Post post,int index,context,HomeViewModel homeViewModel){
                 homeViewModel.countIndex[index]==0?
                 InkWell(
                   onTap: () async {
-                    await homeViewModel.bottomSheet(context,false,false,false,false,false,false,false,false,false,false);
-                    homeViewModel.increment(index);
+                    homeViewModel.bottomSheet(context,post.id,index);
                   },
                   child: Container(
                     height: 30,
@@ -196,7 +195,7 @@ Widget itemOfUser(Post post,int index,context,HomeViewModel homeViewModel){
                 ],
               ),
             ),
-          )
+          ),
         ],
       ),
     ),

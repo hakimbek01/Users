@@ -26,6 +26,7 @@ class HomeViewModel extends ChangeNotifier {
     } else {
       String? rezult = await Network.GET(Network.API_LIST, {});
       users = Network.parsePostList(rezult!);
+      isLoading = false;
       notifyListeners();
     }
 
@@ -38,7 +39,7 @@ class HomeViewModel extends ChangeNotifier {
     isLoading = true;
     notifyListeners();
     await Network.DEL(Network.API_DELETE+post.id!, {});
-    getUser(true);
+    getUser(false);
   }
 
 

@@ -28,11 +28,6 @@ class _HomePageState extends State<HomePage> {
     super.initState();
   }
 
-  @override
-  void dispose() {
-    print("paka");
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +48,7 @@ class _HomePageState extends State<HomePage> {
                       onPressed: () async {
                         await Network.POST(Network.API_CREATE, {});
                       },
-                      icon: Icon(CupertinoIcons.add,color: Colors.blue,),
+                      icon: const Icon(CupertinoIcons.add,color: Colors.blue,),
                     )
                   ],
                 ),
@@ -151,13 +146,13 @@ class _HomePageState extends State<HomePage> {
                               },
                             ),
                           ),
-                          SizedBox(height: 10,),
+                          const SizedBox(height: 10,),
                           Column(
                             children: List.generate(homeViewModel.users.length, (index) {
                               return itemOfUser(homeViewModel.users[index], index, context, homeViewModel);
                             })
                           ),
-                          SizedBox(height: 20,)
+                          const SizedBox(height: 20,)
                         ],
                       ),
                     ),
@@ -165,13 +160,13 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               homeViewModel.isLoading?
-              Scaffold(
+              const Scaffold(
                 backgroundColor: Colors.transparent,
                 body: Center(
                   child: CupertinoActivityIndicator(),
                 ),
               ):
-              SizedBox()
+              const SizedBox()
             ],
           );
         },

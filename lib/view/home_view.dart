@@ -202,3 +202,59 @@ Widget itemOfUser(Post post,int index,context,HomeViewModel homeViewModel,){
   );
 }
 
+Widget checkButton(isCheck,title,count) {
+  return StatefulBuilder(
+    builder: (context, setState) {
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(title,style: TextStyle(color: Colors.grey),),
+          Row(
+            children: [
+              Text(count,style: TextStyle(color: Colors.grey),),
+              SizedBox(width: 5,),
+              Checkbox(
+                value: isCheck,
+                onChanged: (value) {
+                  setState((){
+                    isCheck = value;
+                  });
+                },
+                activeColor: Colors.blue,
+              )
+            ],
+          )
+        ],
+      );
+    },
+  );
+}
+
+Widget radioButton(isRadio,currentRadio,title,count) {
+  return StatefulBuilder(
+    builder: (context, setState) {
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(title,style: TextStyle(color: Colors.grey),),
+          Row(
+            children: [
+              Text(count,style: TextStyle(color: Colors.grey),),
+              SizedBox(width: 5,),
+              Radio(
+                value: isRadio,
+                groupValue: currentRadio,
+                onChanged: (value) {
+                  setState((){
+                    currentRadio = value;
+                  });
+                },
+                activeColor: Colors.blue,
+              )
+            ],
+          )
+        ],
+      );
+    },
+  );
+}

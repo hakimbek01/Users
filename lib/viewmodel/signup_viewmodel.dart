@@ -25,8 +25,11 @@ class SignUpViewModel extends ChangeNotifier {
     String nameStr=name.text.trim();
     String confirmPasswordStr=confirmPassword.text.trim();
 
-    if (emailStr.isEmpty || passwordStr.isEmpty || nameStr.isEmpty || passwordStr != confirmPasswordStr) return;
-    if (confirmPassword!=password) return;
+    if (emailStr.isEmpty || passwordStr.isEmpty || nameStr.isEmpty) return;
+    if (confirmPasswordStr!=passwordStr) return;
+
+    isLoading = true;
+    notifyListeners();
 
     try {
       await AuthService.signUp(emailStr, passwordStr).then((value) async => {
@@ -49,7 +52,6 @@ class SignUpViewModel extends ChangeNotifier {
       notifyListeners();
     }
   }
-
 
   Future<void> addUserFirestore(String uid) async {
     if (name.text.isEmpty || email.text.isEmpty || password.text.isEmpty || confirmPassword.text.isEmpty) return;

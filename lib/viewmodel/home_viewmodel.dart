@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task2/view/home_view.dart';
 import '../model/post_model.dart';
 import '../services/http_service.dart';
 
@@ -104,137 +105,16 @@ class HomeViewModel extends ChangeNotifier {
                         children: [
                           Text("Remove Ingredients",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16),),
                           SizedBox(height: 15,),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text("Red pepper",style: TextStyle(color: Colors.grey),),
-                              Checkbox(
-                                value: value1,
-                                onChanged: (value) {
-                                  setState((){
-                                    value1 = value;
-                                  });
-                                },
-                                activeColor: Colors.blue,
-                              )
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text("Olive",style: TextStyle(color: Colors.grey),),
-                              Checkbox(
-                                value: value2,
-                                onChanged: (value) {
-                                  setState((){
-                                    value2 = value;
-                                  });
-                                },
-                                activeColor: Colors.blue,
-                              )
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text("Mushroom",style: TextStyle(color: Colors.grey),),
-                              Checkbox(
-                                value: value3,
-                                onChanged: (value) {
-                                  setState((){
-                                    value3 = value;
-                                  });
-                                },
-                                activeColor: Colors.blue,
-                              )
-                            ],
-                          ),
+                          checkButton(value1, "Red pepper", ""),
+                          checkButton(value2, "Olive", ""),
+                          checkButton(value3, "Mushroom", ""),
                           SizedBox(height: 15,),
                           Text("Extra Ingridients",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16),),
                           SizedBox(height: 15,),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text("Mozzarella cheese",style: TextStyle(color: Colors.grey),),
-                              Row(
-                                children: [
-                                  Text("+1",style: TextStyle(color: Colors.grey),),
-                                  SizedBox(width: 5,),
-                                  Checkbox(
-                                    value: value4,
-                                    onChanged: (value) {
-                                      setState((){
-                                        value4 = value;
-                                      });
-                                    },
-                                    activeColor: Colors.blue,
-                                  )
-                                ],
-                              )
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text("Sousage",style: TextStyle(color: Colors.grey),),
-                              Row(
-                                children: [
-                                  Text("+2",style: TextStyle(color: Colors.grey),),
-                                  SizedBox(width: 5,),
-                                  Checkbox(
-                                    value: value5,
-                                    onChanged: (value) {
-                                      setState((){
-                                        value5 = value;
-                                      });
-                                    },
-                                    activeColor: Colors.blue,
-                                  )
-                                ],
-                              )
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text("Corn",style: TextStyle(color: Colors.grey),),
-                              Row(
-                                children: [
-                                  Text("+1",style: TextStyle(color: Colors.grey),),
-                                  SizedBox(width: 5,),
-                                  Checkbox(
-                                    value: value6,
-                                    onChanged: (value) {
-                                      setState((){
-                                        value6 = value;
-                                      });
-                                    },
-                                    activeColor: Colors.blue,
-                                  )
-                                ],
-                              )
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text("Bacon",style: TextStyle(color: Colors.grey),),
-                              Row(
-                                children: [
-                                  Text("+3",style: TextStyle(color: Colors.grey),),
-                                  SizedBox(width: 5,),
-                                  Checkbox(
-                                    value: value7,
-                                    onChanged: (value) {
-                                      setState((){
-                                        value7 = value;
-                                      });
-                                    },
-                                  )
-                                ],
-                              )
-                            ],
-                          ),
+                          checkButton(value4, "Mozarellas cheese", "+1"),
+                          checkButton(value5, "Sousage", "+2"),
+                          checkButton(value6, "Corn", "+1"),
+                          checkButton(value7, "Bacon", "+3"),
                           SizedBox(height: 15,),
                           Text("Beverage",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16),),
                           SizedBox(height: 15,),
@@ -320,21 +200,27 @@ class HomeViewModel extends ChangeNotifier {
                                 ),
                               ),
                               Expanded(
-                                child: Container(
-                                  margin: EdgeInsets.only(right: 5),
-                                  height: 50,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.only(topRight: Radius.circular(7),bottomRight: Radius.circular(7)),
-                                    gradient: LinearGradient(
-                                      begin: Alignment.bottomLeft,
-                                      end: Alignment.topRight,
-                                      colors: [
-                                        Colors.lightBlueAccent.shade100,
-                                        Colors.lightBlueAccent
-                                      ]
-                                    )
+                                child: InkWell(
+                                  onTap: () {
+                                    increment(index);
+                                    Navigator.pop(context);
+                                  },
+                                  child: Container(
+                                    margin: EdgeInsets.only(right: 5),
+                                    height: 50,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.only(topRight: Radius.circular(7),bottomRight: Radius.circular(7)),
+                                      gradient: LinearGradient(
+                                        begin: Alignment.bottomLeft,
+                                        end: Alignment.topRight,
+                                        colors: [
+                                          Colors.lightBlueAccent.shade100,
+                                          Colors.lightBlueAccent
+                                        ]
+                                      )
+                                    ),
+                                    child: Center(child: Text("Add to Cart",style: TextStyle(color: Colors.white,fontSize: 17),)),
                                   ),
-                                  child: Center(child: Text("Add to Cart",style: TextStyle(color: Colors.white,fontSize: 17),)),
                                 ),
                               ),
                             ],
